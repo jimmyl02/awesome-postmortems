@@ -7,6 +7,12 @@ This repository is a simple collection of postmortems I find interesting. Also, 
 ## Postmorterms
 
 - 11-15-2023 - [OpenAI API Outage](https://status.openai.com/incidents/00fpy0yxrx1q) by [OpenAI](https://openai.com/)
+  - Due to an increase in traffic, routing nodes faced memory issues due to a memory expensive operations which created GC pressure. The resolution was to reuse a memory buffer as well as implement load shedding capabilities.
+- 11-03-2023 - [Cloudflare Control Plane Outage](https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-analytics-outage/) by [Cloudflare](https://cloudflare.com/)
+  - Cloudflare control plane was degraded as a core datacenter became unavailable due to datacenter maintainence activities. The resolution is to ensure all GA services are highly available.
 - 03-21-2023 - [OpenAI API Outage](https://status.openai.com/incidents/z0tly13xsyyb) by [OpenAI](https://openai.com/)
+  - Internal network connectivity issues in kubernetes cluster caused other healthy nodes to receive more traffic than they would be able to handle. Network issues also caused observability tooling to be unavailable. Resolution was to fix the networking issue, remove unhealthy nodes, and better understand behavior when hardware fails.
 - 03-20-2023 - [DALL-E Web Interface Down](https://status.openai.com/incidents/4cckbrhr8hr0) by [OpenAI](https://openai.com/)
+  - Hosts were unable to properly join the cluster due to an expensive GPU diagnostics command causing initial health checks to fail. This occured due to a node restart for kubernetes upgrade. Resolution was to ensure node rejoined and implement load shedding tools.
 - 03-16-2023 - [ChatGPT Outage](https://status.openai.com/incidents/ds7h4z02flf5) by [OpenAI](https://openai.com/)
+  - Redis had maximum connections setting misconfigured which caused failures when it reached prod. This connection limit was not hit during staging or canary. Resolution is to improve Redis monitoring to catch the problem earlier.
