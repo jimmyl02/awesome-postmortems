@@ -8,6 +8,8 @@ This repository is a simple collection of postmortems I find interesting. Also, 
 
 - 11-15-2023 - [OpenAI API Outage](https://status.openai.com/incidents/00fpy0yxrx1q) by [OpenAI](https://openai.com/)
   - Due to an increase in traffic, routing nodes faced memory issues due to a memory expensive operations which created GC pressure. The resolution was to reuse a memory buffer as well as implement load shedding capabilities.
+- 11-06-2023 - [Dicsord Authentication Outage](https://discord.com/blog/authentication-outage) by [Discord](https://discord.com)
+  - Due to planned maintainence + hardware failure, a syclladb cluster responsible for authentication suffered degraded performance. Other factors like low row cache hit rates and a retry storm further exacerbated the issue. The resolution was to wait for the healthy zone to complete its rebuild to regain quorum.
 - 11-03-2023 - [Cloudflare Control Plane Outage](https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-analytics-outage/) by [Cloudflare](https://cloudflare.com/)
   - Cloudflare control plane was degraded as a core datacenter became unavailable due to datacenter maintainence activities. The resolution is to ensure all GA services are highly available.
 - 03-21-2023 - [OpenAI API Outage](https://status.openai.com/incidents/z0tly13xsyyb) by [OpenAI](https://openai.com/)
