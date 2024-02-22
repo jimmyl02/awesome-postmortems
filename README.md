@@ -6,6 +6,10 @@ This repository is a simple collection of postmortems I find interesting. Also, 
 
 ## Postmorterms
 
+- 02-21-2024 - [Resend Core Outage](https://resend.com/blog/incident-report-for-february-21-2024)
+  - A failed database migration caused the production tables to be dropped. These were slowly recovered from backups during which the API was unavailable. The resolution was to increase database resources to increase the speed of recovery.
+- 02-20-2024 - [OpenAI ChaGPT Unexpected Responses](https://status.openai.com/incidents/ssg8fh7sfyz3)
+  - Due to a bad kernel deployment, specific GPU configurations would cause incorrect outputs to be returned which resulted in incorrect and incoherent tokens to be returned
 - 11-15-2023 - [OpenAI API Outage](https://status.openai.com/incidents/00fpy0yxrx1q) by [OpenAI](https://openai.com/)
   - Due to an increase in traffic, routing nodes faced memory issues due to a memory expensive operations which created GC pressure. The resolution was to reuse a memory buffer as well as implement load shedding capabilities.
 - 11-06-2023 - [Dicsord Authentication Outage](https://discord.com/blog/authentication-outage) by [Discord](https://discord.com)
