@@ -7,7 +7,7 @@ This repository is a simple collection of postmortems I find interesting. Also, 
 ## Postmorterms
 
 - 12-26-2024 - [High error rates for ChatGPT, APIs, and Sora](https://status.openai.com/incidents/6bwlxnvdncnm) by [OpenAI](https://openai.com/)
-	- postmortem to be released
+	- Azure had a major outage due to a power failure in a datacenter. This caused databases where the primary was located in the affected region to fail. The failover process was elongated due to the size of the databases. As a remediation, there will be work done to improve resiliency for failovers and ensuring they are able to completed much faster. 
 - 12-11-2024 - [API, ChatGPT & Sora Facing Issues](https://status.openai.com/incidents/ctrsv3lwd797) by [OpenAI](https://openai.com/)
 	- The release of a new telemetry service caused kubernetes control plane to be overloaded. This caused significant problems as operators could no longer administrate the cluster and eventually DNS caches expired causing service discovery to fail. As a remediation, there will be increased investments in phased rollouts, testing, and decoupling of the data plane and control plane
 - 04-08-2024 - [Cloudflare Datacenter Outage](https://blog.cloudflare.com/major-data-center-power-failure-again-cloudflare-code-orange-tested) by [Cloudflare](https://cloudflare.com/)
